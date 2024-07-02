@@ -38,8 +38,8 @@ spec:
   {{- end }}
   rules:
     {{- range .Values.ingress.hosts }}
-      http:
-        paths:
+      - http:
+          paths:
           {{- range .paths }}
           - path: {{ .path }}
             {{- if and .pathType (semverCompare ">=1.18-0" $.Capabilities.KubeVersion.GitVersion) }}
